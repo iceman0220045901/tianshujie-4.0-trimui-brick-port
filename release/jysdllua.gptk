@@ -1,0 +1,30 @@
+back = esc
+start = enter
+
+up = up
+down = down
+left = left
+right = right
+
+a = esc
+b = space
+x = leftshift
+y = leftalt
+
+l1 = e
+l2 = tab
+l3 = esc
+
+r1 = t
+r2 = backspace
+r3 = \"
+
+left_analog_up = up
+left_analog_down = down
+left_analog_left = left
+left_analog_right = right
+
+right_analog_up = \"
+right_analog_down = \"
+right_analog_left = \"
+right_analog_right = \"

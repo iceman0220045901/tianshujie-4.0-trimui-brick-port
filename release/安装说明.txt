@@ -1,0 +1,51 @@
+天书劫 4.0 原味强化版 · 吹米（TrimUI Brick）移植层 安装说明
+============================================================
+版本：v1.0.0（2026-11-10）
+
+一、这是什么
+  这是"移植层"，不含游戏本体数据。请自行准备
+  「天书劫原味强化版4.0 正式发布版（V18.0）」并解压到同一个端口目录。
+
+二、目录
+  /mnt/SDCARD/Ports/jysdlbh/
+      ├─ jysdllua          引擎（aarch64，已含 fbdev 直写后端）
+      ├─ launch.sh         启动脚本（挂起 MainUI、gptokeyb、显示/音频/立绘参数）
+      ├─ config.json       Ports 菜单条目
+      ├─ icon.png          菜单图标（bg.png 可选，可从旧版 Ports/Jinyong 拷一张）
+      ├─ gptokeyb          手柄转键盘的中间层
+      ├─ jysdllua.gptk     键位映射
+      ├─ overlays/         上下机框遮罩（bars-crt.png 为默认）
+      ├─ fix-help-case.sh  攻略目录大小写修正脚本
+      └─ data/ script/ set.ini …   游戏本体（自行解压）
+
+三、安装步骤
+  1) 解压游戏本体到 /mnt/SDCARD/Ports/jysdlbh/
+  2) 解压本包，覆盖到同一目录
+  3) 修攻略目录大小写（4.0 原包是 data/help，引擎要 data/Help）：
+        cd /mnt/SDCARD/Ports/jysdlbh && sh fix-help-case.sh
+  4) 权限：
+        chmod -R 777 /mnt/SDCARD/Ports/jysdlbh
+  5) 从掌机 Ports 菜单启动「天书劫4.0」
+
+四、验证
+  · 标题界面完整、四册书装饰在（说明内部 1280×720 生效）
+  · 载入进度列表 1~11 行两端不被切
+  · 手柄可操作（gptokeyb 生效）
+  · 有 BGM（音乐默认已打开）
+  · 进游戏 → 系统 → 系统攻略，能看到 16 本书；已完成剧情为绿色「（完成）」
+
+五、常见调整（只改 launch.sh，不用重编引擎）
+  画面更大：JY_FB_SCALE=0.8 → 0.9（会左右裁边）
+  整圈机框：JY_FB_SCALE=0.75 + JY_FB_OVERLAY=overlays/crt-visible.png
+  纯黑边：注释 JY_FB_OVERLAY 行
+  静音：export JY_MUSIC_DEFAULT=0（恢复原版默认关闭）
+  立绘更大：JY_HEAD_FIT=146 → 160/180
+
+六、注意
+  · 不要从 SSH 直接跑游戏（MainUI 会盖住画面）；必须走 Ports 菜单。
+  · 游戏退出请用游戏内「离开游戏」，引擎不响应 kill -TERM。
+  · 攻略更新：直接覆盖 data/Help/*.txt，行尾 '十六进制数' 标记不要动。
+
+七、版权
+  游戏数据与素材版权归 szlzw 及原权利方；本移植层（脚本/工具/文档）为 MIT。
+  请自行拥有游戏本体后再使用。

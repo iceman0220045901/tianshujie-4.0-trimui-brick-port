@@ -1,0 +1,10 @@
+{
+    "label":"天书劫4.0",
+    "label.ch.lang":"天书劫4.0",
+    "icon":"icon.png",
+    "iconsel":"icon.png",
+    "background":"bg.png",
+    "themecolor":"FFFFFF",
+    "launch":"launch.sh",
+    "description":"天书劫原味强化版 4.0 正式发布版（吹米 Brick 移植）"
+}
