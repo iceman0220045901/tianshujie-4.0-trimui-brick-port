@@ -1,1 +1,23 @@
+# 构建产物与本地临时文件（不入库）
+build/
+build_dbg/
+*.o
+*.so
+*.raw
+*.zip
+*.tar
+*.log
 
+# 游戏数据（版权不属于本项目）
+data/
+script/
+set.ini
+save/
+mod*/
+
+# 编辑器/系统
+.vs/
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
